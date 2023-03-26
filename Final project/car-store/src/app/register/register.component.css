@@ -1,0 +1,32 @@
+.example-container {
+    height: 100%;
+  }
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    gap: 1rem;
+  }
+  
+  button {
+  align-self: center; /* Align the button with the input fields */
+  margin-top: 1rem;
+}
+.icon-container {
+  display: flex; 
+  justify-content: center; 
+  /* align-items: center;
+  height: 100%; */
+}
+.center-horizontal {
+  text-align: center;
+}

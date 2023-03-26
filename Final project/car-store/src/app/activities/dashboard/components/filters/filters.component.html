@@ -1,0 +1,15 @@
+<!-- <p>filters works!</p> -->
+<!-- <mat-expansion-panel *ngIf="categories"> -->
+<mat-expansion-panel >
+    <mat-expansion-panel-header>
+        <mat-panel-title>Logout</mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-selection-list [multiple]="false">
+        <!-- <mat-list-option *ngFor="let category of categories" [value]="category"> -->
+            <!-- <button (click)="onShowCategory(category)">{{category}}</button> -->
+            <mat-list-option>
+            <button (click)="onLogout()">Logout</button>
+        </mat-list-option>
+    </mat-selection-list>
+
+</mat-expansion-panel>

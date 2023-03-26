@@ -1,0 +1,79 @@
+table {
+    width: 100%;
+    height : 300px;
+  }
+   
+   td, th {
+    padding: 200px;
+    text-align: left;
+  }
+  
+  th {
+    font-weight: bold;
+  }
+  
+  img {
+    width: 200px;
+    height: 200px;
+  }  
+
+  /* .product-cell img {
+    width: 400px;
+    height: 400px;
+  }  */
+  
+  /* .clear-all-btn {
+    float: right;
+  } */
+
+  /* table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  th {
+    font-weight: bold;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .clear-all-btn {
+    float: right;
+  }
+  
+  .product-header, .name-header, .price-header, .quantity-header, .total-header, .action-header {
+    width: 20%;
+  }
+  
+  .product-cell, .name-cell, .price-cell, .quantity-cell, .total-cell, .action-cell {
+    width: 20%;
+    vertical-align: middle;
+  }
+  
+  .product-footer, .name-footer, .price-footer, .quantity-footer, .total-footer, .action-footer {
+    width: 20%;
+  }
+  
+  .mat-row:last-child {
+    font-weight: bold;
+  }
+  
+  .mat-row:hover {
+    background-color: #f2f2f2;
+  }
+  
+   */

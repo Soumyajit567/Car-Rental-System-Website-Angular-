@@ -1,0 +1,48 @@
+<!-- <p>login works!</p> -->
+<!-- <form (ngSubmit)="onSubmit()">
+    <div>
+      <label for="username">Username:</label>
+      <input [(ngModel)]="username" name="username" required>
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input [(ngModel)]="password" name="password" type="password" required>
+    </div>
+    <button type="submit">Login</button>
+  </form>
+  <p>
+    Don't have an account? <a routerLink="/register">Register</a>
+  </p>
+   -->
+
+   <!-- Add Angular Material component styles -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://unpkg.com/@angular/material@12.2.12/prebuilt-themes/indigo-pink.css" rel="stylesheet">
+
+<!-- Wrap the login form with a MatDrawerContainer -->
+<mat-drawer-container class="example-container">
+  
+  <mat-drawer-content>
+      <!-- <mat-icon>LOGIN</mat-icon> -->
+  <h1 class="font-bold center-horizontal">Welcome To Our Car Rental Store</h1>
+  <div class="icon-container">
+    <mat-icon>LOGIN</mat-icon>
+    </div>
+    <div class="form-container">
+      <form (ngSubmit)="onSubmit()">
+        <div>
+          <label for="username">Username:</label>
+          <input [(ngModel)]="username" name="username" required>
+        </div>
+        <div>
+          <label for="password">Password:</label>
+          <input [(ngModel)]="password" name="password" type="password" required>
+        </div>
+        <button mat-icon-button type="submit" class="login-button"> <mat-icon>login</mat-icon></button>
+      </form>
+      <p>
+        Don't have an account? <a routerLink="/register">Register</a>
+      </p>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

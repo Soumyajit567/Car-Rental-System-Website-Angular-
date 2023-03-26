@@ -1,0 +1,80 @@
+<!-- <p>header works!</p> -->
+
+<!-- <mat-toolbar class="max-w-7xl mx-auto border-x" style="display: flex; justify-content: space-between;">
+    <a routerLink="dashboard">Welcome To Our Car Rental Store</a>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon [matBadge]="itemsQuantity" [matBadgeHidden]="!itemsQuantity" matBadgeColor="warn">local_taxi</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <div class="p-3 divide-y divide-solid">
+            <div class="pb-3 flex justify-between">
+                <span class="mr-16">{{itemsQuantity}} Items</span>
+                <span style="margin-right: 64px;"></span>
+                <a routerLink="car-cart">View Cart</a>
+            </div>
+            <div *ngIf="carcart.items.length" class="py-3">
+                <div *ngFor="let item of carcart.items" class="flex justify-between font-light mb-2">
+                    <span>{{item.name}} ✖ {{item.quantity}}</span>
+                    <span style="margin-right: 72px;"></span>
+                    <span class="ml-4 font-bold">{{item.price | currency : "INR"}}</span>
+            </div>
+            <div class = "flex justify-between py-3 font-light">
+                Total:
+                <span class="font-bold">{{getTotal(carcart.items) | currency : "INR"}}</span>
+            </div>
+            <div class ="pt-3 flex justify-between">
+                <button class="bg-rose-600 text-white rounded-full w-10 h-10">
+                    <mat-icon>
+                        clear
+                    </mat-icon>
+                </button>
+                <button routerLink = "cart" class="bg-green-600 text-white rounded-full w-10 h-10">
+                    <mat-icon>
+                        verified
+                    </mat-icon>
+                </button>
+            </div>
+        </div>
+    </mat-menu>
+</mat-toolbar> -->
+
+
+<mat-toolbar class="max-w-7xl mx-auto border-x" style="display: flex; justify-content: space-between;" [ngClass]="{ 'dark-mode': themeService.isDarkTheme$ | async }">
+    <a routerLink="dashboard">Welcome To Our Car Rental Store</a>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon [matBadge]="itemsQuantity" [matBadgeHidden]="!itemsQuantity" matBadgeColor="warn">local_taxi</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <div class="p-3 divide-y divide-solid" [ngClass]="{ 'dark-mode': themeService.isDarkTheme$ | async }">
+            <div class="pb-3 flex justify-between">
+                <span class="mr-16">{{itemsQuantity}} Items</span>
+                <span style="margin-right: 64px;"></span>
+                <a routerLink="car-cart">View Cart</a>
+            </div>
+            <div *ngIf="cart.items.length" class="py-3">
+                <div *ngFor="let item of cart.items" class="flex justify-between font-light mb-2">
+                    <span>{{item.name}} ✖ {{item.quantity}}</span>
+                    <span style="margin-right: 72px;"></span>
+                    <span class="font-bold not-italic">{{item.price | currency : "INR"}}</span>
+                </div>
+            </div>
+                <div class = "flex justify-between py-3 font-light">
+                    Total:
+                    <span class="font-bold">{{getTotal(cart.items) | currency : "INR"}}</span>
+                </div>
+                <div class ="pt-3 flex justify-between">
+                    <button (click)="onClearCart()" class="bg-rose-600 text-white rounded-full w-10 h-10">
+                        <mat-icon>
+                            clear
+                        </mat-icon>
+                    </button>
+                    <button routerLink = "cart" class="bg-green-600 text-white rounded-full w-10 h-10">
+                        <mat-icon>
+                            verified
+                        </mat-icon>
+                    </button>
+                </div>
+            </div>
+    </mat-menu>
+</mat-toolbar>
+

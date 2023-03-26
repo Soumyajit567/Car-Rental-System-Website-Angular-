@@ -1,0 +1,61 @@
+<!-- <p>dashboard works!</p> -->
+<!-- <mat-drawer-container [autosize]="true" class="min-h-full max-w-7xl mx-auto border-x">
+    <mat-drawer mode ="side" opened class="p-6">
+        <app-filters (showCategory)="onShowCategory($event)"></app-filters>
+    </mat-drawer>
+    <mat-drawer-content class="p-6">
+        <app-car-products-header (columnsCountChange) = "onColumnsCountChange($event)">
+        </app-car-products-header>
+        <mat-grid-list gutterSize = "16" [cols]="cols" [rowHeight] = rowHeight>
+            <mat-grid-tile>
+        
+                 <app-car-product-box
+                 (addToCart)="onAddToCart($event)"
+                 class="w-full" [fullWidthMode] ="cols === 1">
+                </app-car-product-box>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </mat-drawer-content>
+</mat-drawer-container> -->
+
+<mat-drawer-container [autosize]="true" class="min-h-full max-w-7xl mx-auto border-x" [ngClass]="{ 'dark-mode': themeService.isDarkTheme$ | async }">
+    <mat-drawer mode ="side" opened class="p-6">
+        <app-filters (showCategory)="onShowCategory($event)"></app-filters>
+    </mat-drawer>
+    <mat-drawer-content class="p-6">
+        <app-car-products-header (columnsCountChange)="onColumnsCountChange($event)"></app-car-products-header>
+        <mat-grid-list gutterSize="16" [cols]="cols" [rowHeight]=rowHeight>
+            <mat-grid-tile>
+                <app-car-product-box (addToCart)="onAddToCart($event)" class="w-full" [fullWidthMode]="cols === 1">
+                </app-car-product-box>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <app-car-product-box-two (addToCart)="onAddToCart($event)" class="w-full" [fullWidthMode]="cols === 1">
+                </app-car-product-box-two>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <app-car-product-box-three (addToCart)="onAddToCart($event)" class="w-full" [fullWidthMode]="cols === 1">
+                </app-car-product-box-three>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <app-car-product-box-four (addToCart)="onAddToCart($event)" class="w-full" [fullWidthMode]="cols === 1">
+                </app-car-product-box-four>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <app-car-product-box-five (addToCart)="onAddToCart($event)" class="w-full" [fullWidthMode]="cols === 1">
+                </app-car-product-box-five>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <app-car-product-box-six (addToCart)="onAddToCart($event)" class="w-full" [fullWidthMode]="cols === 1">
+                </app-car-product-box-six>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </mat-drawer-content>
+</mat-drawer-container>
+
+
+
+
+
+
+

@@ -1,0 +1,58 @@
+<!-- <p>car-product-box works!</p> -->
+<!-- <mat-card class = "tex-center">
+    <div>
+        <img class="mb-1 mx-auto h-[200px]" 
+        [ngClass]="{'h-200px': !fullWidthMode, 'h-[360px]': fullWidthMode}"
+        src="https://4.bp.blogspot.com/_nhlqtamD6bk/TCZsNlwpPyI/AAAAAAAAAYw/DPSmWz2heQM/s1600/sport+car.jpg"
+        />
+        <div class="w-full">
+            <div>
+                <div class = "text-center">
+                     <p>Buy</p> 
+                    <p>Formula 1 Racing Car</p>
+                </div>
+                <div class="flex justify-between">
+                <p class="truncate hover:whitespace-normal">
+                    <span class="text-red-600">{{"50000000" | currency : "INR"}}</span>
+                </p>
+                <button (click)="onAddToCart()">
+                    <mat-icon class="text-gray-500">shopping_cart</mat-icon>
+                </button>
+            </div>
+            </div>
+        </div>
+    </div>
+</mat-card> -->
+
+<mat-card *ngIf="product" [ngClass]="{ 'text-center': !fullWidthMode }" [ngClass]="{ 'dark-mode': themeService.isDarkTheme$ | async }">
+    <div [ngClass]="{ flex: fullWidthMode }">
+      <img
+        class="mb-1 mx-auto"
+        [ngClass]="{ 'h-[200px]': !fullWidthMode, 'h-[360px]': fullWidthMode }"
+        [src]="product.image"
+      />
+      <div
+        class="w-full"
+        [ngClass]="{ 'px-8 flex flex-col justify-between': fullWidthMode }"
+      >
+        <div>
+          <h5>{{ product.category }}</h5>
+          <p
+            class="truncate hover:whitespace-normal"
+            [ngClass]="{ truncate: !fullWidthMode }"
+          >
+            {{ product.title }}
+          </p>
+          <p *ngIf="fullWidthMode">
+            {{ product.description }}
+          </p>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-red-400">{{ product.price | currency : "INR" }}</span>
+          <button (click)="onAddToCart()">
+            <mat-icon class="text-gray-500">shopping_cart</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </mat-card>

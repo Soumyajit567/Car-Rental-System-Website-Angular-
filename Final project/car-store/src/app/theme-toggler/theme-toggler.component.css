@@ -1,0 +1,14 @@
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+  }
+  
+  .dark-mode button {
+    background-color: #ffffff;
+    color: #121212;
+  }
+  .small-button {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+  

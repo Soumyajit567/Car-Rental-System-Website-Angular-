@@ -1,0 +1,48 @@
+<!-- <p>theme-toggler works!</p> -->
+<!-- <button (click)="toggleTheme()" [ngClass]="{'dark-mode': isDarkMode}">
+    {{ isDarkMode ? 'Light Mode' : 'Dark Mode' }}
+  </button>
+   -->
+
+   <!-- <div [ngClass]="{'dark-mode': isDarkMode}">
+    <button (click)="toggleTheme()">
+      {{ isDarkMode ? 'Light Mode' : 'Dark Mode' }}
+    </button>
+  </div>
+   -->
+   <!-- <button
+   mat-stroked-button
+   color="primary"
+   (click)="toggleDarkMode()"
+ >
+   {{ (themeService.darkMode | async) ? 'Light Mode' : 'Dark Mode' }}
+ </button> -->
+ <!-- <div>
+ <button mat-raised-button (click)="toggleDarkMode()" class="p2">
+    Mode
+  </button>
+</div> -->
+
+<!-- <div>
+  <button mat-icon-button (click)="toggleDarkMode()" class="float-right">
+    <mat-icon>moon</mat-icon>
+  </button>
+</div> -->
+
+<!-- <div>
+  <button mat-icon-button (click)="toggleDarkMode()" class="p2">
+    <h6>Mode</h6>
+    <mat-icon>{{(themeService.isDarkTheme$ | async) ? 'nights_stay' : 'wb_sunny' }}</mat-icon>
+  </button>
+</div> -->
+
+<div>
+  <button mat-icon-button (click)="toggleDarkMode()" class="p2">
+    <div style="display: flex; align-items: center;">
+      <mat-icon>{{(themeService.isDarkTheme$ | async) ? 'nights_stay' : 'wb_sunny' }}</mat-icon>
+      <h6 style="margin-left: 4px;">Mode</h6>
+    </div>
+  </button>
+</div>
+
+

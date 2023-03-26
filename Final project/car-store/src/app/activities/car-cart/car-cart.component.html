@@ -1,0 +1,184 @@
+<!-- <p>car-cart works!</p> -->
+<mat-card class = "max-w-7xl mx-auto" *ngIf = "cart.items.length" [ngClass]="{ 'dark-mode': themeService.isDarkTheme$ | async }" >
+    <table mat-table [dataSource] = "dataSource" class = "mat-elevetaion-z8">
+
+        <ng-container matColumnDef = "product">
+            <th mat-header-cell *matHeaderCellDef>Product</th>
+            <td mat-cell *matCellDef="let element">
+                <img src="{{element.product}}" alt="product" class="w-[200px] h-[200px] my-5">
+            </td>
+            <td mat-footer-cell *matFooterCellDef>
+                <button mat-raised-button routerLink="/dashboard">Continue</button>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef = "name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let element">
+                <p class="truncate max-w-xs block"> {{element.name}} </p> 
+            </td>
+            <td mat-footer-cell *matFooterCellDef>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef = "price">
+            <th mat-header-cell *matHeaderCellDef>Price</th>
+            <td mat-cell *matCellDef="let element">
+              <p><span class="text-red-600"> {{element.price | currency : "INR"}}</span> </p> 
+            </td>
+            <td mat-footer-cell *matFooterCellDef>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef = "quantity">
+            <th mat-header-cell *matHeaderCellDef>Quantity</th>
+            <td mat-cell *matCellDef="let element">
+                <button (click)="Subtract(element)" mat-icon-button><mat-icon>remove</mat-icon></button>
+                    <span style="font-size: 1.2em"> {{element.quantity}} </span> 
+                <button (click)="Add(element)" mat-icon-button><mat-icon>add</mat-icon></button>
+            </td>
+            <td mat-footer-cell *matFooterCellDef>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef = "month">
+            <th mat-header-cell *matHeaderCellDef>Months</th>
+            <td mat-cell *matCellDef="let element">
+            <button (click)="SubtractMonth(element)" mat-icon-button><mat-icon>remove</mat-icon></button>
+              <span style="font-size: 1.2em"> {{element.month}}</span> 
+              <button (click)="AddMonth(element)" mat-icon-button><mat-icon>add</mat-icon></button>
+            </td>
+            <td mat-footer-cell *matFooterCellDef>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef = "total">
+            <th mat-header-cell *matHeaderCellDef>
+                <span class="font-bold py-5 block">Total</span>
+            </th>
+            <td mat-cell *matCellDef="let element" class="text-red-600">
+                 {{element.total}} 
+            </td>
+            <td mat-footer-cell *matFooterCellDef>
+                <span class="font-bold py-5 block text-red-500"> {{getTotal(cart.items) | currency : "INR"}} </span>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef = "action">
+            <th mat-header-cell *matHeaderCellDef>
+                    <button mat-raised-button color="warn" (click)="onClearStore()" class="float-right">Clear All</button>
+            </th>
+            <td mat-cell *matCellDef="let element">
+                 <button (click)="RemoveFromStore(element)" mat-icon-button color="warn" class="float-right" >
+                    <mat-icon>close</mat-icon>
+                 </button>
+            </td>
+            <td mat-footer-cell *matFooterCellDef>
+                <button mat-raised-button color="primary" class="float-right">Proceed to Checkout</button>
+            </td>
+        </ng-container>
+
+        <!-- <ng-container matColumnDef="total">
+            <th mat-header-cell *matHeaderCellDef>
+              <span class="font-bold py-5 block">Total</span>
+            </th>
+            <td mat-cell *matCellDef="let element" class="text-red-600">
+                {{element.total}}
+            </td>
+            <td mat-footer-cell *matFooterCellDef>
+              <span class="font-bold py-5 block" class="text-red-600">{{getTotal(cart.items) | currency : "INR"}}</span>
+            </td>
+        </ng-container> -->
+          
+<!-- 
+        <ng-container matColumnDef = "action">
+            <th mat-header-cell *matHeaderCellDef>
+                <button mat-raised-button color="warn" class="float-right">Clear All</button>
+            </th>
+            <td mat-cell *matCellDef="let element">
+              <p class="truncate max-w-xs">  </p> 
+            </td>
+            <td mat-footer-cell *matFooterCellDef>
+            </td>
+        </ng-container> -->
+
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+    </table>
+</mat-card>
+
+<mat-card class="max-w-7xl mx-auto" *ngIf="!cart.items.length">
+    <p class="font-bold" style="display: flex; justify-content: space-between; align-items: center;">
+      <span>Your store is empty.</span>
+      <button mat-raised-button routerLink="/dashboard">Start Exploring</button>
+    </p>
+</mat-card>
+
+<!-- <mat-card class = "max-w-7xl mx-auto" *ngIf = "!cart.items.length">
+    <p class="font-bold">
+        Your store is empty.
+        <button mat-raised-button routerLink="/dashboard">Start Exploring</button>
+    </p>
+</mat-card> -->
+
+<!-- <mat-card class = "max-w-7xl mx-auto" *ngIf = "cart.items.length">
+    <table mat-table [dataSource]="cart.items" class="mat-elevation-z8">
+        <ng-container matColumnDef="product">
+        <th mat-header-cell *matHeaderCellDef class="product-header">Product</th>
+        <td mat-cell *matCellDef="let element" class="product-cell">
+            <img src="{{element.product}}" alt="product">
+        </td>
+        <td mat-footer-cell *matFooterCellDef class="product-footer"></td>
+        </ng-container>
+    
+        <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef class="name-header">Name</th>
+        <td mat-cell *matCellDef="let element" class="name-cell">
+            <p class="truncate max-w-xs">{{element.name}}</p>
+        </td>
+        <td mat-footer-cell *matFooterCellDef class="name-footer"></td>
+        </ng-container>
+    
+        <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef class="price-header">Price</th>
+        <td mat-cell *matCellDef="let element" class="price-cell">
+            <p>{{element.price | currency : "INR"}}</p>
+        </td>
+        <td mat-footer-cell *matFooterCellDef class="price-footer"></td>
+        </ng-container>
+    
+        <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef class="quantity-header">Quantity</th>
+        <td mat-cell *matCellDef="let element" class="quantity-cell">
+            <p>{{element.quantity}}</p>
+        </td>
+        <td mat-footer-cell *matFooterCellDef class="quantity-footer"></td>
+        </ng-container>
+    
+        <ng-container matColumnDef="total">
+        <th mat-header-cell *matHeaderCellDef class="total-header">Total</th>
+        <td mat-cell *matCellDef="let element" class="total-cell">
+            {{element.total}}
+        </td>
+        <td mat-footer-cell *matFooterCellDef class="total-footer">
+            <span class="font-bold">{{getTotal(cart.items) | currency : "INR"}}</span>
+        </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef class="action-header">
+            <button mat-raised-button color="warn" class="clear-all-btn">Clear All</button>
+        </th>
+        <td mat-cell *matCellDef="let element" class="action-cell"></td>
+        <td mat-footer-cell *matFooterCellDef class="action-footer"></td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+    </table>
+</mat-card>
+     -->

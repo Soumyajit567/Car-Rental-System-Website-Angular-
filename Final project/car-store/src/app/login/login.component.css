@@ -1,0 +1,43 @@
+.example-container {
+    height: 100%;
+  }
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    gap: 1rem;
+  }
+  
+  button {
+    margin-top: 1rem;
+    align-self: center;
+    padding: 10px 20px; /* Add padding to increase button size */
+    font-size: 18px; /* Increase font size */
+    min-width: 150px; /* Set a minimum width */
+  }
+  .mat-menu-trigger {
+    font-size: 18px; /* Increase font size */
+    padding: 10px 20px; /* Add padding to increase button size */
+    min-width: 150px; /* Set a minimum width */
+  }
+ 
+  .icon-container {
+    display: flex; 
+    justify-content: center; 
+    /* align-items: center;
+    height: 100%; */
+  }
+  
+  .center-horizontal {
+    text-align: center;
+  }
+  
